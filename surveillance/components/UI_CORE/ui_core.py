@@ -1,3 +1,4 @@
+from ..CORE.REQUIREMENTS import Requirements as requ
 class Collect_Data () :
     '''
     
@@ -248,13 +249,18 @@ class Release_Data(Collect_Table_Data):
 
     def __init__(self, raw_data=None, before_table_data=None , pending_casework_table_data=None , after_table_data=None) :
         
-        self.raw_data = raw_data
-        self.before_table_data = before_table_data
-        self.pending_casework_table_data = pending_casework_table_data
-        self.after_table_data = after_table_data
-
+        self.raw_data = raw_data   # ورودی های خام ثابت که از کاربر میگیری
+        self.before_table_data = before_table_data  # ورودی های جدول که کاربر باید وارد کنه برا قبل اجرا
+        self.pending_casework_table_data = pending_casework_table_data   # ورودی های جدول که کاربر باید وارد کنه برا حین اجرا موردی
+        self.after_table_data = after_table_data   # ورودی های جدول که کاربر باید وارد کنه برا یعد اجرا
+ 
 
     def send(self):
+
+
+        # this func needs to be called each time for calculation
+        # its functionallity is to pack datas and send them all for calculation
+
         data_pack = {
             'raw_data' : self.raw_data ,
             'before_table_data' : self.before_table_data ,
@@ -262,7 +268,15 @@ class Release_Data(Collect_Table_Data):
             'after_table_data' : self.after_table_data,
         }
 
-        print('this is datapack')
-        print(data_pack)
+        # data packed 
+        # now its ready for calculation
 
-        return data_pack
+
+#this single line of code send data package to the Requirements class 
+# inside of Requirements class we call another class to calculate and storage state 
+# finally what do we have is a json base Variable of output      
+        output = requ(data_pack=data_pack)
+
+
+
+        return output

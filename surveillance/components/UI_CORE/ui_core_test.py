@@ -11,7 +11,7 @@ def current_datetime(request):
 
 
 
-cc=Collect_Data(contract_name='fatemeh',Regional_coefficient='ghaojgh')
+cc=Collect_Data(contract_name='fatemeh',Regional_coefficient='ghaojgh',covenant_period=10)
 n=cc.Estimated_Amount_Dependent(estimates_amount_dependent='1400' , ea_electrical_facilities='sejrfng', ea_equipment='fogbre', ea_shipping='ofgnr' , ea_mechanical_facilities='jdng;ajg' , ea_rural_water='4352345', ea_steel='fgafng', ea_under_pressure_irrigation='435435')
 print(':?????')
 
@@ -24,5 +24,6 @@ b=h.raw(m,n)
 
 print('******')
 r=Release_Data(raw_data=b)
+
+# this has to ba called .... like start key for whole project
 rr=r.send()
-w=Requirements(rr)

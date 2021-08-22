@@ -115,3 +115,23 @@ class Support (models.Model) :
     time_duration = models.IntegerField(null=True,blank=True)
     number = models.IntegerField(null=True,blank=True)
     cost = models.IntegerField(null=True,blank=True)
+
+
+class Estimated_Amount_Coefficient (models.Model):
+    
+    equipment_coefficient = models.FloatField()
+    steel_coefficient = models.FloatField()
+    rural_water_coefficient = models.FloatField()
+    shipping_coefficient = models.FloatField()
+    under_pressure_irrigation_coefficient = models.FloatField()
+    mechanical_facilities_coefficient = models.FloatField()
+    electrical_facilities_coefficient = models.FloatField()
+    railway_airport_highways_coefficient = models.FloatField()
+    railway_airport_highways_type_1_2_coefficient = models.FloatField()
+
+
+
+
+
+
+
